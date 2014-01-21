@@ -55,7 +55,7 @@ module VagrantPlugins
           end
 
           # Find networks if provided
-          if config.networks
+          unless config.networks.empty?
             env[:ui].info(I18n.t("vagrant_openstack.finding_network"))
             options[:nics] = Array.new
             config.networks.each do |net|
