@@ -23,6 +23,7 @@ describe VagrantPlugins::OpenStack::Config do
     its(:scheduler_hints) { should be_nil }
     its(:tenant) { should be_nil }
     its(:proxy) { should be_nil }
+    its(:ssl_verify_peer) { should be_nil }
   end
 
   describe "overriding defaults" do
@@ -38,6 +39,7 @@ describe VagrantPlugins::OpenStack::Config do
       :security_groups,
       :scheduler_hints,
       :tenant,
+      :ssl_verify_peer,
       :proxy].each do |attribute|
       it "should not default #{attribute} if overridden" do
         subject.send("#{attribute}=".to_sym, "foo")

@@ -136,6 +136,7 @@ This provider exposes quite a few provider-specific configuration options:
 * `tenant` - Tenant name.  You only need to specify this if your OpenStack user has access to multiple tenants.
 * `region` - Region Name. Specify the region you want the instance to be launched in for multi-region environments.
 * `proxy` - HTTP proxy. When behind a firewall override this value for API access.
+* `ssl_verify_peer` - sets the ssl_verify_peer on the underlying excon connection - useful for self signed certs etc.
 
 These can be set like typical provider-specific configuration:
 

@@ -99,6 +99,10 @@ module VagrantPlugins
       # @return [String]
       attr_accessor :proxy
 
+      # Value for SSL_VERIFY_PEER, defaults to true.  Set to false for self
+      # signed ssl certificate
+      attr_accessor :ssl_verify_peer
+
       def initialize
         @api_key  = UNSET_VALUE
         @endpoint = UNSET_VALUE
@@ -120,6 +124,7 @@ module VagrantPlugins
         @floating_ip = UNSET_VALUE
         @region = UNSET_VALUE
         @proxy = UNSET_VALUE
+        @ssl_verify_peer = UNSET_VALUE
       end
 
       def finalize!
@@ -151,6 +156,7 @@ module VagrantPlugins
 
         @region = nil if @region == UNSET_VALUE
         @proxy = nil if @proxy == UNSET_VALUE
+        @ssl_verify_peer = nil if @ssl_verify_peer == UNSET_VALUE
       end
 
       def validate(machine)
