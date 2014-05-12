@@ -2,6 +2,10 @@
 
 ## 0.4.0
 
+- fix version
+
+## 0.4.0
+
 - Merge pull request #49 from RackerJohnMadrid/fix-rsync-vagrant-1-4 [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/5664ead3fda8f889dad72de1de2fbb
 - fixes the issue of ssh keys now being represented as an Array in vagrant >= 1.4 [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/0741d802a13c4a858
 - fix regression wrt multiple nics [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/9c5441db359b34f2bbf66d30853c97b0896a494b)
