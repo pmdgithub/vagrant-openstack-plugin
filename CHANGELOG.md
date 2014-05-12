@@ -1,5 +1,21 @@
 # Changelog for vagrant-openstack-plugin
 
+## 0.4.0
+
+- Merge pull request #49 from RackerJohnMadrid/fix-rsync-vagrant-1-4 [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/5664ead3fda8f889dad72de1de2fbb
+- fixes the issue of ssh keys now being represented as an Array in vagrant >= 1.4 [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/0741d802a13c4a858
+- fix regression wrt multiple nics [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/9c5441db359b34f2bbf66d30853c97b0896a494b)
+- update README [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/725e66ab7970e5698aa7347dae93f791e926097a)
+- implement multiple networks [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/0bbbda10bc3b6a09e3165936a2cd17d56b9d3159)
+- two minor rsync bugfixes [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/5bf54e8ab99baa850631803137d991a4756f34ab)
+- Merge pull request #33 from johnbellone/master [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/f863781405a1070fe991f55f93d2b37763f6c1da)
+- Add actions for pausing/suspending (and inverse). [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/a5ec0edd25af250599e0e248a25d8a34af0e1c40)
+- Merge pull request #31 from johnbellone/master [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/83031f79e5834693e2c45656c0ae17b6f13afe83)
+- Add a little debugging output. [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/c00310ed8855d3b2b0472ab9304debefbb0918e3)
+- Add travis.yml file to the project. [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/bc53baaa43c2bf652294d374e071c96bf00bcf12)
+- Add proxy option to configuration. [view commit](http://github.com/cloudbau/vagrant-openstack-plugin/commit/3d33bdc9a3bf28af7403bd1a0245a9869799eadc)
+
+
 ## 0.3.0 (September 25, 2013)
 
 - Adds support to determine IP address to use
