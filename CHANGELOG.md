@@ -2,6 +2,7 @@
 
 ## 0.5.0
 
+
 - Merge pull request #45 from detiber/fixNetworksPR [view commit](http://github.com///commit/56b28eff5a1079c6805ec944b1a0c1dde458b10e)
 - Merge pull request #53 from tjheeta/remote_machine_id [view commit](http://github.com///commit/5873d1b5282fe2d24a0e725ec6289d1ba5e20e9b)
 - Merge pull request #54 from last-g/patch-1 [view commit](http://github.com///commit/7941573ef8f547a915e31c51ab4d1b85b878eebe)
