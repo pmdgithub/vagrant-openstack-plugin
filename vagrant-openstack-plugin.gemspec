@@ -6,8 +6,8 @@ require 'vagrant-openstack-plugin/version'
 Gem::Specification.new do |gem|
   gem.name          = "vagrant-openstack-plugin"
   gem.version       = VagrantPlugins::OpenStack::VERSION
-  gem.authors       = ["Mitchell Hashimoto", "Thomas Kadauke"]
-  gem.email         = ["mitchell@hashicorp.com", "t.kadauke@cloudbau.de"]
+  gem.authors       = ["Edmund Haselwanter"]
+  gem.email         = ["me@ehaselwanter.com"]
   gem.description   = "Enables Vagrant to manage machines in OpenStack Cloud."
   gem.summary       = "Enables Vagrant to manage machines in OpenStack Cloud."
   gem.homepage      = "http://www.vagrantup.com"
