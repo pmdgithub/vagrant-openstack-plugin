@@ -168,6 +168,27 @@ the remote machine over SSH.
 This is good enough for all built-in Vagrant provisioners (shell,
 chef, and puppet) to work!
 
+## Contributors
+
+- [mitchellh](https://github.com/mitchellh)
+- [tkadauke](https://github.com/tkadauke)
+- [srenatus](https://github.com/srenatus)
+- [hvolkmer](https://github.com/hvolkmer)
+- [ehaselwanter](https://github.com/ehaselwanter)
+- [BRIMIL01](https://github.com/BRIMIL01)
+- [jkburges](https://github.com/jkburges)
+- [johnbellone](https://github.com/johnbellone)
+- [mat128](https://github.com/mat128)
+- [jtopjian](https://github.com/jtopjian)
+- [antoviaque](https://github.com/antoviaque)
+- [last-g](https://github.com/last-g)
+- [spil-jasper](https://github.com/spil-jasper)
+- [detiber](https://github.com/detiber)
+- [RackerJohnMadrid](https://github.com/RackerJohnMadrid)
+- [Lull3rSkat3r](https://github.com/Lull3rSkat3r)
+- [nicobrevin](https://github.com/nicobrevin)
+- [ohnoimdead](https://github.com/ohnoimdead)
+
 ## Development
 
 To work on the `vagrant-openstack-plugin` plugin, clone this repository out, and use
