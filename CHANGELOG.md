@@ -1,8 +1,23 @@
 # Changelog for vagrant-openstack-plugin
 
-## 0.4.0
+## 0.5.0
 
-- fix version
+- Merge pull request #45 from detiber/fixNetworksPR [view commit](http://github.com///commit/56b28eff5a1079c6805ec944b1a0c1dde458b10e)
+- Merge pull request #53 from tjheeta/remote_machine_id [view commit](http://github.com///commit/5873d1b5282fe2d24a0e725ec6289d1ba5e20e9b)
+- Merge pull request #54 from last-g/patch-1 [view commit](http://github.com///commit/7941573ef8f547a915e31c51ab4d1b85b878eebe)
+- Merge pull request #56 from nicobrevin/feature-no-verify-peer [view commit](http://github.com///commit/844835811808d256f67ad43e0124ace3f552a18c)
+- Merge pull request #58 from ohnoimdead/no-network-fix [view commit](http://github.com///commit/4b44a7c80d4a381531266844a5c99de0eea850b5)
+- Fix for exception when OS endpoint doesn't have neutron installed [view commit](http://github.com///commit/7558bbed3b5ecae8bb3e3ca9c64ffc9512a4c170)
+- add ssl_verify_peer config option [view commit](http://github.com///commit/cb94f002d790afb5fbec225d17385c8f5b0ebb35)
+- Missing semicolon [view commit](http://github.com///commit/8f609ee474b548b096e42b08c27fc5f874037204)
+- Missing region while configuring networks [view commit](http://github.com///commit/ea10bff5cdabea0b9c543a5231500fb7f9fd50ac)
+- Fix for delete_server [view commit](http://github.com///commit/d4f812eb99d135f7b7c5d210778e92cd8e5a4561)
+- If the .vagrant directory does not contain the machine id, try to connect remotely to try to find it [view commit](http://github.com///commit/71447bf49afe1fed29fa7ce561305dcc756a2e16)
+- Fix test for config.network and config.networks. [view commit](http://github.com///commit/5c9161aaf3ac715bc52819ee99c2d02d8434ea7b)
+
+## 0.4.1
+
+- update release info [view commit](http://github.com///commit/9866c83713ec0f1db8aed02a9aa9cbaafe8e85a4)
 
 ## 0.4.0
 
