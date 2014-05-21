@@ -1,5 +1,14 @@
 # Changelog for vagrant-openstack-plugin
 
+## 0.6.0
+
+- Merge pull request #59 from virtuald/fixed_automatic_ip [view commit](http://github.com///commit/7e7867ee7340515a8d0171fe5ea88aa340646e0f)
+- Update README with additional information about automatic allocation [view commit](http://github.com///commit/ea4ee9f409f61a2583588d3782701fe66239bd24)
+- Allow address_id to use the automatically assigned floating ip [view commit](http://github.com///commit/cb0e29c20e7105dae2a6534ccaebbe656c0d8419)
+- Update README [view commit](http://github.com///commit/b26f70653fb7cfbfe9604031d82aa42d4a324421)
+- Add support for automatically allocating a floating IP [view commit](http://github.com///commit/aee3129fc6020d3e3a6cc8db28b9b1c812225fbc)
+- update changelog [view commit](http://github.com///commit/936a2eef3d802d65a9f0753b5652ef4a8dbdb345)
+
 ## 0.5.0
 
 
