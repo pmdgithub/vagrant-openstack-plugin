@@ -128,7 +128,8 @@ This provider exposes quite a few provider-specific configuration options:
   vagrant network configurations.
 * `networks` - An array of names or ids to create a server with multiple network interfaces. This overrides the `network` setting.
 * `address_id` - A specific address identifier to use when connecting to the
-  instance. `network` has higher precedence.
+  instance. `network` has higher precedence. If set to :floating_ip, then 
+  the floating IP address will be used. 
 * `scheduler_hints` - Pass hints to the open stack scheduler, see `--hint` flag in [OpenStack filters doc](http://docs.openstack.org/trunk/openstack-compute/admin/content/scheduler-filters.html)
 * `availability_zone` - Specify the availability zone in which the instance
   must be created.
@@ -137,6 +138,8 @@ This provider exposes quite a few provider-specific configuration options:
 * `region` - Region Name. Specify the region you want the instance to be launched in for multi-region environments.
 * `proxy` - HTTP proxy. When behind a firewall override this value for API access.
 * `ssl_verify_peer` - sets the ssl_verify_peer on the underlying excon connection - useful for self signed certs etc.
+* `floating_ip` - Floating ip. The floating IP to assign for this instance. If
+  set to :auto, then this assigns any available floating IP to the instance.
 
 These can be set like typical provider-specific configuration:
 
