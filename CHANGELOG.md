@@ -1,5 +1,11 @@
 # Changelog for vagrant-openstack-plugin
 
+## 0.7.0
+
+- Merge pull request #35 from johnbellone/master [view commit](http://github.com///commit/5969261f11585e19348e903eec15617634c3c899)
+- Fix issues with SSH private keys in Vagrant 1.4. [view commit](http://github.com///commit/a8bf7574de48dc1c62928f5ad73fb6d1e7dd4347)
+- Refactor OpenStack actions to match AWS. [view commit](http://github.com///commit/c7177dc98ba43e3434075186a76df57d27ce7b26)
+
 ## 0.6.1
 
 - Merge pull request #60 from matope/fix-floating_ip-NoMethodError [view commit](http://github.com///commit/a058256c27573c7545afbc09cce60214731e6e4e)
