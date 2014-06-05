@@ -1,5 +1,10 @@
 # Changelog for vagrant-openstack-plugin
 
+## 0.6.1
+
+- Merge pull request #60 from matope/fix-floating_ip-NoMethodError [view commit](http://github.com///commit/a058256c27573c7545afbc09cce60214731e6e4e)
+- Fix NoMethodError on vagrant up w/o floating_ip [view commit](http://github.com///commit/be6fb0d46f69a3b9925c11648e5bc71af4491a7d)
+
 ## 0.6.0
 
 - Merge pull request #59 from virtuald/fixed_automatic_ip [view commit](http://github.com///commit/7e7867ee7340515a8d0171fe5ea88aa340646e0f)
