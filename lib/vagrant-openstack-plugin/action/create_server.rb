@@ -97,7 +97,7 @@ module VagrantPlugins
               # Once the server is up and running assign a floating IP if we have one
               floating_ip = config.floating_ip
               # try to automatically allocate a floating IP
-              if floating_ip.to_sym == :auto
+              if floating_ip && floating_ip.to_sym == :auto
                 addresses = env[:openstack_compute].addresses
                 puts addresses
                 free_floating = addresses.find_index {|a| a.fixed_ip.nil?}
