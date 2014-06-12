@@ -29,17 +29,22 @@ module VagrantPlugins
             :ssl_verify_peer => config.ssl_verify_peer
           }
 
-          @logger.info("Connecting to OpenStack...")
-          @logger.debug("API connection params: #{connection_options.inspect}")
-          env[:openstack_compute] = Fog::Compute.new({
-            :provider => :openstack,
+          # Prepare connection parameters for use with fog service
+          # initialization (compute, storage, orchestration, ...).
+          env[:fog_openstack_params] = {
+            :provider           => :openstack,
             :connection_options => connection_options,
             :openstack_username => username,
-            :openstack_api_key => api_key,
+            :openstack_api_key  => api_key,
             :openstack_auth_url => endpoint,
-            :openstack_tenant => tenant,
-            :openstack_region => region
-          })
+            :openstack_tenant   => tenant,
+            :openstack_region   => region
+          }
+
+          @logger.info("Connecting to OpenStack...")
+          @logger.debug("API connection params: #{connection_options.inspect}")
+          env[:openstack_compute] = Fog::Compute.new(
+            env[:fog_openstack_params])
 
           if config.networks && !config.networks.empty?
             env[:openstack_network] = Fog::Network.new({

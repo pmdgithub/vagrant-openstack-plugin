@@ -45,7 +45,10 @@ en:
     will_not_destroy: |-
         The instance '%{name}' will not be destroyed, since the confirmation
         was declined.
-
+    creating_orchestration_stack: |-
+        Creating orchestration stack...
+    deleting_orchestration_stacks: |-
+        Deleting orchestration stacks...
     config:
       api_key_required: |-
         An API key is required.
@@ -84,6 +87,12 @@ en:
       floating_ip_not_found: |-
         A floating IP could not be allocated, as no available floating 
         IPs were found in OpenStack
+      orchestration_template_error: |-
+        There was an error while reading orchestration template.
+        Error: %{err}
+      orchestration_no_template_file_error: |-
+        Orchestration template file not found (%{fname}).
+
     states:
       short_active: |-
         active

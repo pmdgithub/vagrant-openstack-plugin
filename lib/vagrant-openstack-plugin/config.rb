@@ -103,6 +103,14 @@ module VagrantPlugins
       # signed ssl certificate
       attr_accessor :ssl_verify_peer
 
+      # Heat orchestration configuration parameters.
+      attr_accessor :orchestration_stack_name
+      attr_accessor :orchestration_stack_destroy
+      attr_accessor :orchestration_cfn_template
+      attr_accessor :orchestration_cfn_template_file
+      attr_accessor :orchestration_cfn_template_url
+      attr_accessor :orchestration_cfn_template_parameters
+
       def initialize
         @api_key  = UNSET_VALUE
         @endpoint = UNSET_VALUE
@@ -125,6 +133,12 @@ module VagrantPlugins
         @region = UNSET_VALUE
         @proxy = UNSET_VALUE
         @ssl_verify_peer = UNSET_VALUE
+        @orchestration_stack_name = UNSET_VALUE
+        @orchestration_stack_destroy = UNSET_VALUE
+        @orchestration_cfn_template = UNSET_VALUE
+        @orchestration_cfn_template_file = UNSET_VALUE
+        @orchestration_cfn_template_url = UNSET_VALUE
+        @orchestration_cfn_template_parameters = UNSET_VALUE
       end
 
       def finalize!
@@ -157,6 +171,13 @@ module VagrantPlugins
         @region = nil if @region == UNSET_VALUE
         @proxy = nil if @proxy == UNSET_VALUE
         @ssl_verify_peer = nil if @ssl_verify_peer == UNSET_VALUE
+
+        @orchestration_stack_name = nil if @orchestration_stack_name == UNSET_VALUE
+        @orchestration_stack_destroy = false if @orchestration_stack_destroy == UNSET_VALUE
+        @orchestration_cfn_template = nil if @orchestration_cfn_template == UNSET_VALUE
+        @orchestration_cfn_template_file = nil if @orchestration_cfn_template_file == UNSET_VALUE
+        @orchestration_cfn_template_url = nil if @orchestration_cfn_template_url == UNSET_VALUE
+        @orchestration_cfn_template_parameters = nil if @orchestration_cfn_template_parameters == UNSET_VALUE
       end
 
       def validate(machine)

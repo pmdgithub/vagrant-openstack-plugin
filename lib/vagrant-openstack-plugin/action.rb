@@ -16,6 +16,7 @@ module VagrantPlugins
             if env[:result]
               b1.use ConnectOpenStack
               b1.use DeleteServer
+              b1.use DeleteOrchestrationStack
             else
               b1.use MessageWillNotDestroy
             end
@@ -92,6 +93,7 @@ module VagrantPlugins
             unless env[:result]
               b1.use action_prepare_boot
               b1.use ConnectOpenStack
+              b1.use CreateOrchestrationStack
               b1.use CreateServer
             else
               b1.use action_resume
@@ -223,6 +225,8 @@ module VagrantPlugins
       autoload :SyncFolders, action_root.join("sync_folders")
       autoload :WaitForState, action_root.join("wait_for_state")
       autoload :WarnNetworks, action_root.join("warn_networks")
+      autoload :CreateOrchestrationStack, action_root.join("create_orchestration_stack")
+      autoload :DeleteOrchestrationStack, action_root.join("delete_orchestration_stack")
     end
   end
 end

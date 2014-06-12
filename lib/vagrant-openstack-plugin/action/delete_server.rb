@@ -20,7 +20,6 @@ module VagrantPlugins
             # TODO: Validate the fact that we get a server back from the API.
             server = env[:openstack_compute].servers.get(id)
             server.destroy
-            env[:machine].id = nil
           end
 
           @app.call(env)
