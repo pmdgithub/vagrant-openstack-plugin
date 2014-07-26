@@ -77,6 +77,12 @@ Vagrant.configure("2") do |config|
     os.security_groups    = ['ssh', 'http']    # optional
     os.tenant             = "YOUR TENANT_NAME" # optional
     os.floating_ip        = "33.33.33.33"      # optional (The floating IP to assign for this instance)
+
+    os.orchestration_stack_name = 'stack01'				# optional
+    os.orchestration_cfn_template_file = '/tmp/cfn_heat_template.json'	# optional
+    os.orchestration_cfn_template_parameters = {			# optional
+      'NetworkName' => 'net_01'
+    } 
   end
 end
 ```
@@ -140,6 +146,18 @@ This provider exposes quite a few provider-specific configuration options:
 * `ssl_verify_peer` - sets the ssl_verify_peer on the underlying excon connection - useful for self signed certs etc.
 * `floating_ip` - Floating ip. The floating IP to assign for this instance. If
   set to :auto, then this assigns any available floating IP to the instance.
+* `orchestration_stack_name` - Name for orchestration stack. Mandatory
+  parameter when creating new stack. One of parameters for template should be
+  set with this parameter.
+* `orchestration_stack_destroy` - If stack created by vagrant should be deleted
+  when destroy action is invoked. Default value is `false`.
+* `orchestration_cfn_template` - AWS CloudFormation Template specified as a string.
+* `orchestration_cfn_template_file` - AWS CloudFormation Template file path
+  accessible for vagrant.
+* `orchestration_cfn_template_url` - AWS CloudFormation Template URL.
+* `orchestration_cfn_template_parameters` - AWS CloudFormation Template
+  parameters specified in ruby hash (take a look at example Vagrantfile).
+  This parameter is optional.
 
 These can be set like typical provider-specific configuration:
 

@@ -34,6 +34,14 @@ module VagrantPlugins
       class FloatingIPNotFound < VagrantOpenStackError
         error_key(:floating_ip_not_found)
       end
+
+      class OrchestrationTemplateError < VagrantOpenStackError
+        error_key(:orchestration_template_error)
+      end
+
+      class OrchestrationNoTemplateFileError < VagrantOpenStackError
+        error_key(:orchestration_no_template_file_error)
+      end
     end
   end
 end
