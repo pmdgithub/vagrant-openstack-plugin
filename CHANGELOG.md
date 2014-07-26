@@ -1,5 +1,22 @@
 # Changelog for vagrant-openstack-plugin
 
+## 0.8.0
+
+- Merge pull request #67 from pradels/master [view commit](http://github.com///commit/15f5b5531622376df952bccc0512a6de50d7a92f)
+- Merge pull request #66 from matope/use-execute-to-make-synced_folder [view commit](http://github.com///commit/96f64a846d40e5c7f0355def17189e38895e29f3)
+- Merge pull request #72 from mathuin/fix-handlebox [view commit](http://github.com///commit/3396e33e54d2527d28a70f1487da6221cd2316e2)
+- Merge pull request #64 from bewiwi/reboot [view commit](http://github.com///commit/24bec035508853be871ed8ed73b1d33f15beff76)
+- Merge pull request #63 from bewiwi/status [view commit](http://github.com///commit/79a8c341501461a0d5ef1ce4f11cc0a1810d38f3)
+- Merge pull request #71 from bewiwi/add_openstack_snapshot_commmand [view commit](http://github.com///commit/bf4eedd6eb5e29aefe4c0e156b932b4f4a81e1f5)
+- Merge pull request #73 from detiber/configNetworks [view commit](http://github.com///commit/5e17c5aaeee7bebc4991e440565f2ee4c1b6f191)
+- Set config.networks to [] if unset [view commit](http://github.com///commit/5aad087358792bee0bd1a6a026820b04bb8ca68f)
+- Changed HandleBoxUrl to HandleBox. [view commit](http://github.com///commit/ad7b2acdea81fe6f4b50e4658ecd36762a849f74)
+- Add command snapshot [view commit](http://github.com///commit/2d207ced7e70fe206fa309ed43a8ace3eb86b327)
+- Orchestration support added. [view commit](http://github.com///commit/d4e098db8517d491adfeb826500ac3ec5384d237)
+- Avoid using sudo to make synced_folder if possible [view commit](http://github.com///commit/b5b6205fbc34e95b4dbd9c13f974b728cb27c76e)
+- Add some status messages [view commit](http://github.com///commit/0c9287bc765e074eac104e02d7a64b36bd122034)
+- Modify reload action to be a real reboot [view commit](http://github.com///commit/91f5dc65a781d062d156b912bfd9d4b84db82e44)
+
 ## 0.7.0
 
 - Merge pull request #35 from johnbellone/master [view commit](http://github.com///commit/5969261f11585e19348e903eec15617634c3c899)
