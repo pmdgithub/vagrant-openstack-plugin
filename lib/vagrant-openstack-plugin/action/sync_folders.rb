@@ -37,9 +37,15 @@ module VagrantPlugins
                                 :guestpath => guestpath))
 
             # Create the guest path
-            env[:machine].communicate.sudo("mkdir -p '#{guestpath}'")
-            env[:machine].communicate.sudo(
-              "chown #{ssh_info[:username]} '#{guestpath}'")
+            # Use sudo only when it is necessary 
+            cmd_mkdir = "mkdir -p '#{guestpath}'"
+            cmd_chown = "chown #{ssh_info[:username]} '#{guestpath}'"
+            if env[:machine].communicate.execute(cmd_mkdir, :error_check => false) != 0 then
+              env[:machine].communicate.sudo(cmd_mkdir)
+            end
+            if env[:machine].communicate.execute(cmd_chown, :error_check => false) != 0 then
+              env[:machine].communicate.sudo(cmd_chown)
+            end
 
             #collect rsync excludes specified :rsync_excludes=>['path1',...] in synced_folder options
             excludes = ['.vagrant/', 'Vagrantfile', *Array(data[:rsync_excludes])].uniq
