@@ -1,10 +1,13 @@
 require "log4r"
+require 'vagrant/util/retryable'
+require 'timeout'
 
 module VagrantPlugins
   module OpenStack
     module Action
       # This deletes the running server, if there is one.
       class DeleteServer
+        include Vagrant::Util::Retryable
         def initialize(app, env)
           @app    = app
           @logger = Log4r::Logger.new("vagrant_openstack::action::delete_server")
@@ -15,11 +18,45 @@ module VagrantPlugins
           id = machine.id || env[:openstack_compute].servers.all( :name => machine.name ).first.id
 
           if id
+            volumes = env[:openstack_compute].servers.get(id).volume_attachments
+
             env[:ui].info(I18n.t("vagrant_openstack.deleting_server"))
 
             # TODO: Validate the fact that we get a server back from the API.
             server = env[:openstack_compute].servers.get(id)
-            server.destroy
+            if server
+              retryable(:on => Timeout::Error, :tries => 20) do
+                # If we're interrupted don't worry about waiting
+                next if env[:interrupted]
+
+                begin
+                  server.destroy if server
+                  status = Timeout::timeout(10) {
+                    while server.reload
+                      sleep(1)
+                    end
+                  }
+                rescue RuntimeError => e
+                  # If we don't have an error about a state transition, then
+                  # we just move on.
+                  raise if e.message !~ /should have transitioned/
+                  raise Errors::ServerNotDestroyed
+                end
+              end
+                
+              env[:ui].info(I18n.t("vagrant_openstack.deleting_volumes"))
+              volumes.each do |compute_volume|
+                volume = env[:openstack_volume].volumes.get(compute_volume["id"])
+                if volume
+                  env[:ui].info("Deleting volume: #{volume.display_name}")
+                  begin
+                    volume.destroy
+                  rescue Excon::Errors::Error => e
+                    raise Errors::VolumeBadState, :volume => volume.display_name, :state => e.message
+                  end
+                end
+              end
+            end
           end
 
           @app.call(env)
