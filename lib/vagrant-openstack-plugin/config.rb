@@ -99,6 +99,11 @@ module VagrantPlugins
       # @return [String]
       attr_accessor :proxy
 
+      # The disks to create as OpenStack volumes.
+      #
+      # @return [Array]
+      attr_accessor :disks
+
       # Value for SSL_VERIFY_PEER, defaults to true.  Set to false for self
       # signed ssl certificate
       attr_accessor :ssl_verify_peer
@@ -133,6 +138,7 @@ module VagrantPlugins
         @region = UNSET_VALUE
         @proxy = UNSET_VALUE
         @ssl_verify_peer = UNSET_VALUE
+        @disks = UNSET_VALUE
         @orchestration_stack_name = UNSET_VALUE
         @orchestration_stack_destroy = UNSET_VALUE
         @orchestration_cfn_template = UNSET_VALUE
@@ -168,6 +174,8 @@ module VagrantPlugins
         @user_data = "" if @user_data == UNSET_VALUE
         @floating_ip = nil if @floating_ip == UNSET_VALUE
 
+        @disks = nil if @disks == UNSET_VALUE
+
         @region = nil if @region == UNSET_VALUE
         @proxy = nil if @proxy == UNSET_VALUE
         @ssl_verify_peer = nil if @ssl_verify_peer == UNSET_VALUE
@@ -185,6 +193,8 @@ module VagrantPlugins
 
         errors << I18n.t("vagrant_openstack.config.api_key_required") if !@api_key
         errors << I18n.t("vagrant_openstack.config.username_required") if !@username
+
+        #XXX need to validate disks array
 
         { "OpenStack Provider" => errors }
       end
