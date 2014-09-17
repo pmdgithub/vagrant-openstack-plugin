@@ -7,7 +7,7 @@ en:
     already_suspended: |-
       The server is already suspended.
     creating_disks: |-
-      Creating disks with the folowing settings...
+      Creating disks with the following settings...
     deleting_server: |-
       Deleting server...
     finding_flavor: |-
@@ -100,7 +100,7 @@ en:
         The floating IP specified in the Vagrantfile does not match an
         available public IP address returned by OpenStack.
       floating_ip_not_found: |-
-        A floating IP could not be allocated, as no available floating 
+        A floating IP could not be allocated, as no available floating
         IPs were found in OpenStack
       orchestration_template_error: |-
         There was an error while reading orchestration template.

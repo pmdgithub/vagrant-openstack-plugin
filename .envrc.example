@@ -1,0 +1,13 @@
+export AMAZON_ACCESS_KEY_ID=""
+export AMAZON_SECRET_ACCESS_KEY=""
+export AWS_ACCESS_KEY=$AMAZON_ACCESS_KEY_ID
+export AWS_SECRET_KEY=$AMAZON_SECRET_ACCESS_KEY
+
+export OS_USERNAME=
+export OS_PASSWORD=
+export OS_TENANT_NAME=pmd-medpro
+export OS_AUTH_URL=http://10.5.2.19:5000/v2.0
+export OS_API_AUTH_URL=http://10.5.2.19:5000/v2.0/tokens
+export OS_NO_CACHE=1
+
+export OS_KEY_NAME=

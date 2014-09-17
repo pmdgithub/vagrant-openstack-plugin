@@ -44,7 +44,7 @@ module VagrantPlugins
             :os_scheduler_hints => config.scheduler_hints,
             :availability_zone => config.availability_zone
           }
-          
+
           # Fallback to only one network, otherwise `config.networks` overrides
           unless config.networks
             if config.network
@@ -64,14 +64,14 @@ module VagrantPlugins
             end
             env[:ui].info("options[:nics]: #{options[:nics]}")
           end
-         
-          volumes = Array.new 
+
+          volumes = Array.new
           # Find disks if provided
-          unless config.disks.empty?
+          unless if config.disks && !config.disks.empty?
             env[:ui].info(I18n.t("vagrant_openstack.creating_disks"))
             config.disks.each do |disk|
               volume = env[:openstack_compute].volumes.all.find{|v| v.name ==
-                                                      disk["name"] and 
+                                                      disk["name"] and
                                                     v.description ==
                                                       disk["description"] and
                                                     v.size ==
@@ -94,11 +94,10 @@ module VagrantPlugins
             end
 
             volumes.each do |vol|
-              env[:ui].info("re-using volume: #{vol["name"]}") if 
+              env[:ui].info("re-using volume: #{vol["name"]}") if
                 vol.has_key?("volume_id")
             end
 
-            puts "XXX #{volumes}"
             volumes = volumes.each do |vol|
               if not vol.has_key?("volume_id")
                 env[:ui].info("creating volume: #{vol["name"]}")
@@ -107,9 +106,8 @@ module VagrantPlugins
                                      data[:body]["volume"]["id"]
               end
             end
-            puts "XXX #{volumes}"
           end
-          
+
           # Output the settings we're going to use to the user
           env[:ui].info(I18n.t("vagrant_openstack.launching_server"))
           env[:ui].info(" -- Flavor: #{flavor.name}")
@@ -146,26 +144,25 @@ module VagrantPlugins
               # try to automatically allocate a floating IP
               if floating_ip && floating_ip.to_sym == :auto
                 addresses = env[:openstack_compute].addresses
-                puts addresses
                 free_floating = addresses.find_index {|a| a.fixed_ip.nil?}
                 if free_floating.nil?
                   raise Errors::FloatingIPNotFound
                 end
                 floating_ip = addresses[free_floating].ip
               end
-                
+
               if floating_ip
                 env[:ui].info( "Using floating IP #{floating_ip}")
                 floater = env[:openstack_compute].addresses.find { |thisone| thisone.ip.eql? floating_ip }
                 floater.server = server
               end
-              
+
               # Attach any volumes
               volumes.each do |volume|
                 # mount points are generated garbage right now
                 # add support if your cloud supports them
                 begin
-                  server.attach_volume(volume["volume_id"], "/dev/disk#{server.volume_attachments.length + 1}")
+                  server.attach_volume(volume["volume_id"], volume["mount_point"])
                 rescue Excon::Errors::Error => e
                   raise Errors::VolumeBadState, :volume => volume["name"], :state => e.message
                 end
@@ -173,7 +170,7 @@ module VagrantPlugins
 
               # store this so we can use it later
               env[:floating_ip] = floating_ip
-              
+
             rescue RuntimeError => e
               # If we don't have an error about a state transition, then
               # we just move on.
